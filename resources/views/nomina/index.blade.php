@@ -42,9 +42,11 @@
                                     <button type="submit" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Activar</button>
                                 </form>  
                             @endif
-                            
-                            <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Eliminar</button>
-                                                      
+                            <form action="{{route('nomina.eliminar', $empleado)}}" method="post" class="inline-block">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Eliminar</button>
+                            </form>                       
                         </td>
                     </tr>
                 @endforeach

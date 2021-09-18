@@ -27,3 +27,5 @@ Route::get('nomina/{empleado}/editar', [NominaController::class, 'edit'])->name(
 Route::put('nomina/{empleado}/update', [NominaController::class, 'update'])->name('nomina.actualizar');
 
 Route::put('nomina/{empleado}', [NominaController::class, 'state'])->name('nomina.estado');
+
+Route::delete('nomina/{empleado}', [NominaController::class, 'destroy'])->name('nomina.eliminar');

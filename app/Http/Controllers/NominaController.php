@@ -82,8 +82,9 @@ class NominaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $empleado)
     {
-        //
+        $empleado->delete();
+        return redirect()->route('nomina.lista');
     }
 }
