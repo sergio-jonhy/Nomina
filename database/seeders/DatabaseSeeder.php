@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //Se llama el seeder generado para cuando se implemente el seeder principal de igual manera se implemente el seeder generado.
+        $this->call(EmployeeSeeder::class);
     }
 }
