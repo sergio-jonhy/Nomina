@@ -15,3 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('nomina', [NominaController::class, 'index'])->name('nomina.lista');
+
+Route::get('nomina/crear', [NominaController::class, 'create'])->name('nomina.crear');
+
+Route::post('nomina', [NominaController::class, 'store'])->name('nomina.guardar');
+
+Route::get('nomina/ver/{empleado}', [NominaController::class, 'show'])->name('nomina.ver');
+
+Route::get('nomina/{empleado}/editar', [NominaController::class, 'edit'])->name('nomina.editar');
+
+Route::put('nomina/{empleado}/update', [NominaController::class, 'update'])->name('nomina.actualizar');
+

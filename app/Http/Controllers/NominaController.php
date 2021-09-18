@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmployee;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -25,18 +26,13 @@ class NominaController extends Controller
      */
     public function create()
     {
-        //
+        return view('nomina.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    //se implementa la validacion mediante un Form request
+    public function store(StoreEmployee $request)
     {
-        //
+        $empleado = Employee::create($request->all());
+        return redirect()->route('nomina.ver', $empleado);
     }
 
     /**
@@ -45,9 +41,9 @@ class NominaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employee $empleado)
     {
-        //
+        return view('nomina.show', compact('empleado'));
     }
 
     /**
@@ -56,11 +52,11 @@ class NominaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Employee $empleado)
     {
-        //
+        return view('nomina.edit', compact('empleado'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -68,9 +64,10 @@ class NominaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEmployee $request, Employee $empleado)
     {
-        //
+        $empleado->update($request->all());
+        return redirect()->route('nomina.ver', $empleado);
     }
 
     /**

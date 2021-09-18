@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <p class="text-2xl inline-block">Lista de empelados</p>
-        <a href="" class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Agregar Empleado</a>
+        <a href="{{route('nomina.crear')}}" class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Agregar Empleado</a>
         <br><br>
 
         <table class="table w-full">
@@ -24,17 +24,17 @@
                         <td class="border-2 border-black">{{$empleado->nombre.' '.$empleado->apellido_p.' '.$empleado->apellido_m }}</td>
                         <td>{{$empleado->estado}}</td>
                         <td class="border-2 border-black">
-                            <a class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Ver</a>
-                            <a class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Editar</a>
+                            <a href="{{route('nomina.ver', $empleado)}}" class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Ver</a>
+                            <a href="{{route('nomina.editar', $empleado)}}" class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Editar</a>
                             <!--condicion para evaluar que tipo de estado se encuentra y ofrecer la opcion de cambiar por el estado opuesto-->
                             @if ($empleado->estado == 'activo')
-                                <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Desactivar</button>
+                                <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Desactivar</button>                         
                             @else
                                 <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Activar</button>
                             @endif
-
-                            <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Eliminar</button>
                             
+                            <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Eliminar</button>
+                                                      
                         </td>
                     </tr>
                 @endforeach

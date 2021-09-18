@@ -33,7 +33,7 @@ class EmployeeFactory extends Factory
             'apellido_p' => $apellido,
             'apellido_m' => $this->faker->lastName(),
             'correo' => $correo,
-            'tipo_contrato' => $this->faker->randomElement(['Tiempo Determinado', 'Tiempo Ideterminado', 'Periodo de Prueba', 'Capacitacion Inicial']),
+            'tipo_contrato' => $this->faker->randomElement(['Tiempo Determinado', 'Tiempo Indeterminado', 'Periodo de Prueba', 'Capacitacion Inicial']),
             'estado' => $this->faker->randomElement(['activo', 'inactivo'])
         ];
     }
