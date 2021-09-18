@@ -70,6 +70,12 @@ class NominaController extends Controller
         return redirect()->route('nomina.ver', $empleado);
     }
 
+    public function state(Request $request, Employee $empleado)
+    {
+        $empleado->estado = $request->estado;
+        $empleado->save();
+        return redirect()->route('nomina.lista');
+    }
     /**
      * Remove the specified resource from storage.
      *

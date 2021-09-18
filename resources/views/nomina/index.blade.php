@@ -28,9 +28,19 @@
                             <a href="{{route('nomina.editar', $empleado)}}" class="inline-block text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Editar</a>
                             <!--condicion para evaluar que tipo de estado se encuentra y ofrecer la opcion de cambiar por el estado opuesto-->
                             @if ($empleado->estado == 'activo')
-                                <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Desactivar</button>                         
+                                <form action="{{route('nomina.estado', $empleado)}}" method="post" class="inline-block">
+                                    @csrf
+                                    @method('put')
+                                    <input type="text" name="estado" value="inactivo" hidden>
+                                    <button type="submit" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Desactivar</button>                         
+                                </form>                            
                             @else
-                                <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Activar</button>
+                                <form action="{{route('nomina.estado', $empleado)}}" method="post" class="inline-block">
+                                    @csrf
+                                    @method('put')
+                                    <input type="text" name="estado" value="activo" hidden>
+                                    <button type="submit" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Activar</button>
+                                </form>  
                             @endif
                             
                             <button type="button" class="inline text-sm px-2 py-1 border rounded text-black border-black hover:bg-black hover:text-white">Eliminar</button>
